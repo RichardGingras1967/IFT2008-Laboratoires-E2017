@@ -2,5 +2,3 @@
 RemoteSystemsTempFiles/
 .settings/
 Debug/
-*.project
-*.cproject
