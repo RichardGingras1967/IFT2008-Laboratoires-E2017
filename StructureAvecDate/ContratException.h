@@ -13,7 +13,7 @@
 #include <stdexcept>
 /**
  * \class ContratException
- * \brief Classe de base des exceptions de contrat
+ * \brief Classe de base des exceptions de contrat.
  */
 class ContratException: public std::logic_error {
 public:

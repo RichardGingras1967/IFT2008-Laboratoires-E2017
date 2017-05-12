@@ -13,7 +13,7 @@
 namespace util {
 /**
  * \class Date
- * \brief Cette classe sert au maintien et à la manipulation des dates.
+ * \brief Cette classe sert au maintien et à la manipulation des dates
  *
  *             La classe maintient dans un état cohérent ces renseignements.
  *             Elle valide ce qu'on veut lui assigner.

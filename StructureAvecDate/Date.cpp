@@ -10,7 +10,7 @@ using namespace std;
 namespace util {
 /**
  * \brief constructeur par défaut \n
- * La date prise par défaut est la date du système .
+ * La date prise par défaut est la date du système
  */
 Date::Date() {
 	m_temps = time(NULL);

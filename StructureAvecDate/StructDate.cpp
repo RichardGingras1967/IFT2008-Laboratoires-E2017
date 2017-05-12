@@ -4,7 +4,7 @@ using namespace std;
 
 struct sDate {
 	// passe a la structure un objet Date dans le constructeur
-	// Dans le fond une structure fonctionne comme une classe
+	// Dans le fond une structure fonctionne comme une classe.
 
 	util::Date m_date;
 	sDate(util::Date &date) :

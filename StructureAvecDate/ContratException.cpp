@@ -14,7 +14,7 @@ using namespace std;
  * \param p_fichP chaîne de caractères représentant le fichier source dans lequel a eu lieu l'erreur
  * \param p_prmLigne un entier représentant la ligne où a eu lieu l'erreur
  * \param p_msgP Message décrivant l'erreur
- * \param p_exprP Test logique qui a échoué
+ * \param p_exprP Test logique qui a échoué.
  */
 ContratException::ContratException(std::string p_fichP, unsigned int p_prmLigne, std::string p_exprP,
 		std::string p_msgP) :
