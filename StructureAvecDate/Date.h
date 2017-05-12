@@ -28,7 +28,7 @@ namespace util {
  * 				time_t m_temps pour long m_temps
  * \invariant m_temps >= 1er janvier 1970 et >= au 31 décembre 2037
  * \invariant La validité peut être vérifiée avec la méthode statique
- *              bool Date::verifierDate(jour, mois, annee).
+ *              bool Date::verifierDate(jour, mois, annee)
  */
 class Date {
 public:

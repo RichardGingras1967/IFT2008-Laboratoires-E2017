@@ -1,4 +1,3 @@
-
 #include "Date.h"
 #include <sstream>
 #include <ctime>
@@ -11,7 +10,7 @@ using namespace std;
 namespace util {
 /**
  * \brief constructeur par défaut \n
- * La date prise par défaut est la date du système
+ * La date prise par défaut est la date du système .
  */
 Date::Date() {
 	m_temps = time(NULL);
@@ -19,8 +18,7 @@ Date::Date() {
 	struct tm* infoTempsP = localtime(&m_temps);
 	ASSERTION(infoTempsP != NULL);
 
-	asgDate(infoTempsP->tm_mday, infoTempsP->tm_mon + 1,
-			infoTempsP->tm_year + 1900);
+	asgDate(infoTempsP->tm_mday, infoTempsP->tm_mon + 1, infoTempsP->tm_year + 1900);
 
 	INVARIANTS();
 }
@@ -136,8 +134,7 @@ bool Date::estBissextile(long p_annee) {
 	bool estBissextile = false;
 
 	if (((p_annee % 4 == 0) && (p_annee % 100 != 0))
-			|| ((p_annee % 4 == 0) && (p_annee % 100 == 0)
-					&& (p_annee % 400 == 0))) {
+			|| ((p_annee % 4 == 0) && (p_annee % 100 == 0) && (p_annee % 400 == 0))) {
 		estBissextile = true;
 	}
 
@@ -148,8 +145,7 @@ bool Date::estBissextile(long p_annee) {
  * \return une chaîne de caractères qui représente le nom du jour de la semaine en français
  */
 string Date::reqNomJourSemaine() const {
-	static string JourSemaine[] = { "Dimanche", "Lundi", "Mardi", "Mercredi",
-			"Jeudi", "Vendredi", "Samedi" };
+	static string JourSemaine[] = { "Dimanche", "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi" };
 
 	struct tm* infoTempsP = localtime(&m_temps);
 	ASSERTION(infoTempsP != NULL); //AssertionException si l'heure système n'a pas correctement été récupérée
@@ -161,9 +157,8 @@ string Date::reqNomJourSemaine() const {
  * \return une chaîne de caractères qui représente le nom du mois en français
  */
 string Date::reqNomMois() const {
-	static string NomMois[] = { "janvier", "fevrier", "mars", "avril", "mai",
-			"juin", "juillet", "aout", "septembre", "octobre", "novembre",
-			"decembre" };
+	static string NomMois[] = { "janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre",
+			"octobre", "novembre", "decembre" };
 
 	struct tm* infoTempsP = localtime(&m_temps);
 	ASSERTION(infoTempsP != NULL); //AssertionException si l'heure système n'a pas correctement été récupérée
@@ -201,8 +196,7 @@ bool Date::validerDate(long p_jour, long p_mois, long p_annee) {
 
 	bool valide = false;
 
-	if (p_mois > 0 && p_mois <= 12 && p_annee >= DEBUT_TEMPS
-			&& p_annee <= FIN_TEMPS) {
+	if (p_mois > 0 && p_mois <= 12 && p_annee >= DEBUT_TEMPS && p_annee <= FIN_TEMPS) {
 		if (p_mois == 2 && Date::estBissextile(p_annee)) {
 			JourParMois[p_mois - 1]++;
 		}

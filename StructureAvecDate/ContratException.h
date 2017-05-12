@@ -13,14 +13,12 @@
 #include <stdexcept>
 /**
  * \class ContratException
- * \brief Classe de base des exceptions de contrat.
+ * \brief Classe de base des exceptions de contrat
  */
-class ContratException: public std::logic_error
-{
+class ContratException: public std::logic_error {
 public:
 	ContratException(std::string, unsigned int, std::string, std::string);
-	~ContratException() throw ()
-	{
+	~ContratException() throw () {
 	}
 	;
 	std::string reqTexteException() const;
@@ -35,8 +33,7 @@ private:
  * \brief Classe pour la gestion des erreurs d'assertion.
  */
 
-class AssertionException: public ContratException
-{
+class AssertionException: public ContratException {
 public:
 	AssertionException(std::string, unsigned int, std::string);
 };
@@ -45,8 +42,7 @@ public:
  * \brief Classe pour la gestion des erreurs de précondition.
  */
 
-class PreconditionException: public ContratException
-{
+class PreconditionException: public ContratException {
 public:
 	PreconditionException(std::string, unsigned int, std::string);
 };
@@ -54,8 +50,7 @@ public:
  * \class PostconditionException
  * \brief Classe pour la gestion des erreurs de postcondition.
  */
-class PostconditionException: public ContratException
-{
+class PostconditionException: public ContratException {
 public:
 	PostconditionException(std::string, unsigned int, std::string);
 };
@@ -64,12 +59,10 @@ public:
  * \class InvariantException
  * \brief Classe pour la gestion des erreurs d'invariant.
  */
-class InvariantException: public ContratException
-{
+class InvariantException: public ContratException {
 public:
 	InvariantException(std::string, unsigned int, std::string);
 };
-
 
 // --- Définition des macros de contrôle de la théorie du contrat
 
