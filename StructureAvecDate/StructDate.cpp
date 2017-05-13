@@ -48,10 +48,8 @@ int main() {
 	ptr = &sdate;
 
 	cout << fctRecevantLaStructure(sdate) << endl;
-
 	ptr->ajouteUneJournee();
-
-	cout << fctRecevantLaStructure(ptr);
+	cout << fctRecevantLaStructure(ptr) << endl;
 
 	return 0;
 }
