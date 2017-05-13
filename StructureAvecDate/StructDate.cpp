@@ -27,18 +27,16 @@ struct sDate {
 };
 
 string fctRecevantLaStructure(const sDate &sd) {
+
 	cout << "la structure est passe a la fonction par reference" << endl;
-
 	string date = sd.reqDateEnregistree();
-
 	return date;
 }
 
 string fctRecevantLaStructure(const sDate *sd) {
+
 	cout << "la structure est passe a la fonction par pointeur" << endl;
-
 	string date = sd->reqDateEnregistree();
-
 	return date;
 }
 
