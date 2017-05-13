@@ -1,68 +1,60 @@
 #include <iostream>
-#include "Date.h"
+#include <ostream>
+#include <sstream>
+#include <string>
+
 using namespace std;
 
 struct sDate {
-	// passe a la structure un objet Date dans le constructeur
-	// Dans le fond une structure fonctionne comme une classe.
+	// les 3 attributs de la structure qui seront mémorisée
+	int m_jour;
+	int m_mois;
+	int m_annee;
 
-	util::Date m_date;
-	sDate(util::Date &date) :
-			m_date(date) {
-
+	sDate(long p_jour, long p_mois, long p_annee) :
+			m_jour(p_jour), m_mois(p_mois), m_annee(p_annee) {
 	}
 
-	void ajouteUneJournee(long nbJour) {
-		m_date.ajouteNbJour(nbJour);
-		//cout << "passage par copie" << endl;
-		//cout << m_date.reqDateFormatee() << endl;
+	void ajouteUneJournee() {
+		m_jour += 1;
 	}
 
-	void ajouteUneJournee(long &nbJour) {
-		m_date.ajouteNbJour(nbJour);
-		//cout << "passage par reference" << endl;
-		//cout << m_date.reqDateFormatee() << endl;
-	}
-
-	void ajouteUneJournee(long *nbJour) {
-		m_date.ajouteNbJour(*nbJour);
-		//cout << "passage par pointeur" << endl;
-		//cout << m_date.reqDateFormatee() << endl;
+	string reqDateEnregistree() const {
+		ostringstream os;
+		os << m_jour << "/" << m_mois << "/" << m_annee;
+		return os.str();
 	}
 };
 
 string fctRecevantLaStructure(const sDate &sd) {
 	cout << "la structure est passe a la fonction par reference" << endl;
 
-	string d = sd.m_date.reqDateFormatee();
+	string date = sd.reqDateEnregistree();
 
-	return d;
-
+	return date;
 }
 
-string fctRecevantLaStructure(sDate *sd) {
+string fctRecevantLaStructure(const sDate *sd) {
 	cout << "la structure est passe a la fonction par pointeur" << endl;
-	cout << "la date + 3 jour est retourne " << endl;
-	sd->ajouteUneJournee(3);
-	string d = sd->m_date.reqDateFormatee();
 
-	return d;
+	string date = sd->reqDateEnregistree();
 
+	return date;
 }
+
 int main() {
-	util::Date date(20, 01, 2017);
-	sDate sdate(date);
-	//sdate.ajouteUneJournee(15);
-	//long i = 30;
+
+	sDate sdate(20, 01, 2017);
+
 	sDate *ptr(0);
-	//long *iptr(0);
-	//iptr = &i;
 	ptr = &sdate;
-	//ptr->ajouteUneJournee(iptr);
-	//ptr->ajouteUneJournee(&i);
 
 	cout << fctRecevantLaStructure(sdate) << endl;
+
+	ptr->ajouteUneJournee();
+
 	cout << fctRecevantLaStructure(ptr);
+
 	return 0;
 }
 
